@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/screens/categories_screen.dart';
 import 'package:food_app/screens/category_item_details_screen.dart';
+import 'package:food_app/screens/filters_screen.dart';
 import 'package:food_app/screens/meals_detail_screen.dart';
+import 'package:food_app/screens/tabs_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.pink,
@@ -27,10 +30,12 @@ class MyApp extends StatelessWidget {
                   fontSize: 20,
                   fontFamily: 'RobotoCondensed',
                   fontWeight: FontWeight.bold))),
-      home: const CategoriesScreen(),
+      home: TabsScreen(),
       routes: {
+        '/categories': (ctx) => const CategoriesScreen(),
         '/category-meals': (ctx) => CategoryItemDetails(),
-        '/meal-details': (ctx) => const MealsDetailScreen()
+        '/meal-details': (ctx) => const MealsDetailScreen(),
+        '/filters': (ctx) => const FiltersScreen()
       },
     );
   }

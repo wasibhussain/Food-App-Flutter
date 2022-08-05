@@ -7,7 +7,7 @@ class MealsDetailScreen extends StatelessWidget {
 
   Widget buildSectoinTitle(BuildContext context, String text) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Text(
         text,
         style: Theme.of(context).textTheme.headline6,
@@ -17,15 +17,16 @@ class MealsDetailScreen extends StatelessWidget {
 
   Widget buildContainer(Widget child) {
     return Container(
-        height: 200,
-        width: 300,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.grey),
-            borderRadius: BorderRadius.circular(10)),
-            child: child,);
+      height: 200,
+      width: 300,
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10)),
+      child: child,
+    );
   }
 
   @override
@@ -66,16 +67,18 @@ class MealsDetailScreen extends StatelessWidget {
               ),
               buildSectoinTitle(context, 'Steps'),
               buildContainer(ListView.builder(
-                itemCount: selectedMeal.steps.length,
-                itemBuilder: ((context, index) => Column(
-                  children: [
-                    ListTile(
-                      leading: CircleAvatar(child: Text('${index+1}'),),
-                      title: Text(selectedMeal.steps[index]),
-                    ),
-                    Divider()
-                  ],
-                ) )))
+                  itemCount: selectedMeal.steps.length,
+                  itemBuilder: ((context, index) => Column(
+                        children: [
+                          ListTile(
+                            leading: CircleAvatar(
+                              child: Text('${index + 1}'),
+                            ),
+                            title: Text(selectedMeal.steps[index]),
+                          ),
+                          const Divider()
+                        ],
+                      ))))
             ],
           ),
         ));
