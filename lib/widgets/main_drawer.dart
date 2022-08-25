@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  Widget buildListTile(String title, IconData icon, Function goToScreen) {
+  Widget buildListTile(String title, IconData icon, Function() goToScreen) {
     return ListTile(
-      onTap:(() =>goToScreen ),
+      onTap: goToScreen,
       leading: Icon(
         icon,
         size: 26,
@@ -39,10 +39,10 @@ class MainDrawer extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           buildListTile('Meals', Icons.restaurant, () {
-             Navigator.of(context).pushNamed('/categories');
+            Navigator.of(context).pushReplacementNamed('/categories');
           }),
           buildListTile('Filter', Icons.filter_alt_sharp, () {
-            Navigator.of(context).pushNamed('/filters');
+            Navigator.of(context).pushReplacementNamed('/filters');
           })
         ],
       ),
